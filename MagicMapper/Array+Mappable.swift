@@ -13,11 +13,11 @@ extension Array: Mappable {
             return
         }
         
-        let values = array.flatMap { type.init(from: $0) as? Element }
+        let values = array.compactMap { type.init(from: $0) as? Element }
         self.init(values)
     }
     
     public var dictionaryValue: Any {
-        return flatMap { ($0 as? Mappable)?.dictionaryValue }
+        return compactMap { ($0 as? Mappable)?.dictionaryValue }
     }
 }

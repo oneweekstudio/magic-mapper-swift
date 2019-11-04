@@ -8,7 +8,9 @@ import Foundation
 extension Double: Mappable {
     
     public init?(from: Any) {
-        if let value = from as? Int {
+        if let value = from as? Double {
+            
+        }else if let value = from as? Int {
             self.init(value)
             return
         } else if let value = from as? String {
